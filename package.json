@@ -1,0 +1,26 @@
+{
+  "name": "expensetracker",
+  "version": "1.0.0",
+  "description": "MERN stack web application  that tracks both income and expenses",
+  "main": "index.js",
+  "scripts": {
+    "server": "cd expenseTracker_server && npm start",
+    "client": "cd expenseTracker_client && npm run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sir-josh01/expenseTracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Sir-josh01/expenseTracker/issues"
+  },
+  "homepage": "https://github.com/Sir-josh01/expenseTracker#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
