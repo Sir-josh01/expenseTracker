@@ -1,0 +1,220 @@
+
+/* 1. VARIABLES & BASE */
+:root {
+  --primary: #6366f1;
+  --bg: #f8fafc;
+  --income: #2ecc71;
+  --expense: #c0392b;
+}
+
+body { 
+  background-color: var(--bg); 
+  font-family: 'Inter', sans-serif; 
+}
+
+.header-title {
+  text-align: center;
+}
+
+/* 2. LAYOUT */
+.container {
+  max-width: 450px;
+  margin: 30px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* 3. SUMMARY CARDS & BALANCE */
+.balance-card { text-align: center; margin-bottom: 20px; }
+.balance-card h1 { font-size: 2.5rem; margin: 0; }
+
+/* Container for the two summary cards */
+.inc-exp-container {
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  display: flex; /* This aligns them side-by-side */
+  justify-content: space-around; /* This creates the gap between them */
+  margin: 20px 0;
+  border-radius: 12px;
+  border: 1px solid #f1f5f9;
+}
+
+/* Individual Income/Expense boxes */
+.inc-exp-container > div {
+  flex: 1; /* Makes both boxes take up equal space */
+  text-align: center;
+}
+
+/* The vertical divider line */
+.inc-exp-container > div:first-of-type {
+  border-right: 1px solid #e2e8f0;
+}
+
+.money {
+  margin: 5px 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.money.plus { color: var(--income); }
+.money.minus { color: var(--expense); }
+
+
+/* spinner effects */
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px 0;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 4. PIE CHART (Centered Fix) */
+.pie-chart {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  margin: 20px auto;
+  background: conic-gradient(
+    var(--expense) 0deg var(--deg), 
+    var(--income) var(--deg) 360deg
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.inner-circle {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.chart-labels {
+  display: flex;
+  justify-content: space-between; /* Pushes one to the left, one to the right */
+  width: 100%;
+  max-width: 160px; /* Matches your pie chart width */
+  margin: 10px auto; /* Centers the whole label group */
+  font-size: 0.85rem;
+}
+
+.success-toast {
+  background-color: #dcfce7;
+  color: #15803d;
+  border-left: 4px solid #15803d;
+  padding: 10px;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  text-align: center;
+  animation: slideIn 0.3s ease-out;
+}
+
+/* 5. INPUTS & FORM */
+.input-group { display: flex; flex-direction: column; gap: 5px; margin-bottom: 20px; }
+
+input, select {
+  padding: 12px;
+  margin: 5px 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+button[type="submit"] {
+  background-color: var(--primary);
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* 6. HISTORY LIST (Color-Coded) */
+.expense-item {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+
+.expense-item:hover { transform: translateX(5px); }
+
+/* Color indicators */
+.border-green { border-right: 6px solid var(--income); }
+.border-red { border-right: 6px solid var(--expense); }
+
+.item-info strong { display: block; text-transform: capitalize; }
+
+/* 7. ACTIONS */
+.actions button {
+  padding: 5px 10px;
+  margin-left: 5px;
+  font-size: 12px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.edit-btn { background: #64748b; cursor: pointer;}
+.delete-btn { background: #ef4444; cursor: pointer}
+
+/* Error and success pop up */
+/* For Errors */
+.error-toast {
+  background-color: #fee2e2;
+  color: #dc2626;
+  border-left: 4px solid #dc2626;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+/* For Success */
+.success-alert {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #c3e6cb;
+  margin: 10px 0;
+  text-align: center;
+  font-weight: bold;
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
