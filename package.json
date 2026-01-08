@@ -1,7 +1,7 @@
 {
   "name": "expensetracker",
   "version": "1.0.0",
-  "description": "MERN stack web application  that tracks both income and expenses",
+  "description": "MERN stack web application that tracks both income and expenses",
   "main": "index.js",
   "scripts": {
     "server": "cd expenseTracker_server && npm start",
