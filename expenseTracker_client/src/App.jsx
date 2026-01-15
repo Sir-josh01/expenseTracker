@@ -88,7 +88,10 @@ function App() {
   ).toFixed(2);
 
   useEffect(() => {
-    fetchExpenses(); //Displays the data immediately window loads
+    const loadData = async () => {
+    await fetchExpenses(); //Displays the data immediately window loads
+    };
+    loadData();
   }, []);
 
   return (

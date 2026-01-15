@@ -52,3 +52,4 @@ To run this project locally, create a `.env` file in the `expenseTracker_server`
 
 ---
 *Created as part of the Web Dev Journey 2026*
+
